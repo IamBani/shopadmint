@@ -58,7 +58,7 @@
   "readme": "ERROR: No README data found!",
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
