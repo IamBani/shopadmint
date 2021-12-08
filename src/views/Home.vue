@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
     <div>测试</div>
     <div>{{a}}</div>
+     <el-icon><setting /></el-icon>
   </div>
 </template>
 
@@ -12,6 +12,7 @@ import { defineComponent, ref } from 'vue'
 export default defineComponent({
   name: 'Home',
   components: {
+
   },
   setup () {
     const a = ref(0)

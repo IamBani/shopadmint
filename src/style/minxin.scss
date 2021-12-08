@@ -1,0 +1,34 @@
+.bordered {
+  ::v-deep .ant-radio-checked {
+    .ant-radio-inner {
+      border-color: @danger-color;
+      &::after {
+        background-color: @danger-color;
+      }
+    }
+  }
+  ::v-deep .ant-radio-wrapper:hover .ant-radio,
+  ::v-deep .ant-radio:hover .ant-radio-inner,
+  ::v-deep .ant-radio-input:focus + .ant-radio-inner {
+    border-color: @danger-color;
+  }
+}
+
+.danger{
+    border-color: @danger-color;
+    background-color: @danger-color;
+}
+
+.primary-boder{
+  border-color: @primary-btn-color;
+}
+.primary-color{
+  color: @primary-btn-color;
+}
+
+.bg-primary-opacity(@opacity:0.7){
+  background-color: rgba(0,16,49,@opacity);
+}
+.bg-white-opacity(@opacity:0.7){
+  background-color: rgba(255,255,255,@opacity);
+}
