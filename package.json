@@ -7,13 +7,17 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "prepare": "husky install"
   },
   "dependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
     "axios": "^0.24.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "element-plus": "^1.2.0-beta.5",
+    "husky": "^7.0.4",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
@@ -41,11 +45,12 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^7.0.0",
-    "lint-staged": "^9.5.0",
+    "lint-staged": "^12.1.2",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "typescript": "~4.1.5",
-    "vue-jest": "^5.0.0-0"
+    "vue-jest": "^5.0.0-0",
+    "husky": "^7.0.0"
   },
   "_id": "shopadmin@0.1.0",
   "gitHooks": {
@@ -60,7 +65,7 @@
   "readme": "ERROR: No README data found!",
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "./node_modules/cz-customizable"
     }
   }
 }
