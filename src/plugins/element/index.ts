@@ -8,7 +8,7 @@ import {
   ElConfigProvider, ElDescriptions, ElDescriptionsItem, ElEmpty, ElMessageBox
 } from 'element-plus'
 import * as ElIconModules from '@element-plus/icons'
-
+import 'element-plus/dist/index.css'
 function registeredSvgIcon (app: App): void {
   for (const iconName in ElIconModules) {
     if (Reflect.has(ElIconModules, iconName)) {

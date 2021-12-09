@@ -23,9 +23,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, getCurrentInstance, ComponentInternalInstance } from 'vue'
 export default defineComponent({
   setup () {
+    const current = getCurrentInstance() as ComponentInternalInstance
+    console.log(current)
+    const { $message } = current.appContext.config.globalProperties
+    $message({
+      message: 'Congrats, this is a success message.',
+      type: 'success'
+    })
     return {}
   }
 })
