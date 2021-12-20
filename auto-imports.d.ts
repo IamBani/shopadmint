@@ -2,6 +2,7 @@
 // We suggest you to commit this file into source control
 declare global {
   const ElAside: typeof import('element-plus/es')['ElAside']
+  const ElAvatar: typeof import('element-plus/es')['ElAvatar']
   const ElButton: typeof import('element-plus/es')['ElButton']
   const ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
   const ElContainer: typeof import('element-plus/es')['ElContainer']
@@ -18,6 +19,7 @@ declare global {
   const ElMenu: typeof import('element-plus/es')['ElMenu']
   const ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
   const ElMenuItemGroup: typeof import('element-plus/es')['ElMenuItemGroup']
+  const ElSpace: typeof import('element-plus/es')['ElSpace']
   const ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
 }
 export {}

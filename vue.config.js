@@ -29,5 +29,12 @@ module.exports = {
       .set('components', resolve('./src/components'))
       .set('assets', resolve('./src/assets'))
       .set('types', resolve('./types'))
+  },
+  css: {
+    loaderOptions: {
+      sass: {
+        prependData: '@import "~@/style/variables.scss";'
+      }
+    }
   }
 }

@@ -1,5 +1,6 @@
 <template>
-   <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+   <el-aside width="260px" class="aside-container">
+     <logo></logo>
      <el-menu :default-openeds="['1', '3']">
         <el-sub-menu index="1">
           <template #title>
@@ -23,8 +24,12 @@
 </template>
 
 <script lang="ts">
+import logo from '../logo/logo.vue'
 import { defineComponent, getCurrentInstance, ComponentInternalInstance } from 'vue'
 export default defineComponent({
+  components: {
+    logo
+  },
   setup () {
     const current = getCurrentInstance() as ComponentInternalInstance
     console.log(current)
@@ -38,6 +43,11 @@ export default defineComponent({
 })
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.aside-container{
+  box-shadow: 1px 0px 4px rgb(0 21 41 / 8%);
+  height: 100%;
+  background-color:$primary-btn-color;
+  z-index: 10;
+  }
 </style>

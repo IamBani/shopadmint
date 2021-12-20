@@ -1,7 +1,7 @@
 <template>
-  <el-container>
+  <el-container class="container">
     <saside></saside>
-    <el-container>
+    <el-container direction="vertical">
       <shead></shead>
       <smain></smain>
     </el-container>
@@ -25,6 +25,9 @@ export default defineComponent({
 })
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.container{
+  height:100vh;
+  width:100vw;
+}
 </style>
