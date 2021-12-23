@@ -9,6 +9,9 @@ import {
 } from 'element-plus'
 import * as ElIconModules from '@element-plus/icons'
 import 'element-plus/dist/index.css'
+
+import SvgIcon from '@/components/Svg/Svg.vue'
+
 function registeredSvgIcon (app: App): void {
   for (const iconName in ElIconModules) {
     if (Reflect.has(ElIconModules, iconName)) {
@@ -56,5 +59,7 @@ export default {
     Vue.component(ElDropdownItem.name, ElDropdownItem)
     Vue.config.globalProperties.$message = ElMessage
     registeredSvgIcon(Vue)
+
+    Vue.component('svg-icon', SvgIcon)
   }
 }

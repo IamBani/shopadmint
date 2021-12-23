@@ -1,0 +1,19 @@
+<template>
+  <div>二维码</div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  setup () {
+    return {
+
+    }
+  }
+})
+</script>
+
+<style>
+
+</style>

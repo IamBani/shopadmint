@@ -42,7 +42,7 @@ export default defineComponent({
       user: '',
       password: ''
     })
-    const formLoginRef = ref(null) as any
+    const formLoginRef = ref()
     const login = () => {
       console.log(loginform.user)
       formLoginRef.value.validate((valid, errform) => {

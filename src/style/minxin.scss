@@ -1,1 +1,9 @@
-
+@mixin flex($row:row) {
+  display:flex;
+  flex-direction: $row;
+}
+@mixin flex-item-center($row:row){
+  display:flex;
+  flex-direction: $row;
+  align-items: center;
+}

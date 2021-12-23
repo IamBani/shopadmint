@@ -3,6 +3,7 @@
    <div @click="a">
     <el-button type="primary">main</el-button>
    </div>
+   <router-view></router-view>
   </el-main>
 </template>
 

@@ -12,10 +12,13 @@
   },
   "dependencies": {
     "@element-plus/icons": "^0.0.11",
+    "@vue/composition-api": "^1.4.2",
     "axios": "^0.24.0",
     "element-plus": "^1.2.0-beta.5",
     "normalize.css": "^8.0.1",
+    "tslib": "^2.3.1",
     "vue": "^3.0.0",
+    "vue-composable": "^1.0.0-beta.24",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
   },
@@ -50,11 +53,11 @@
     "lint-staged": "^12.1.2",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
+    "svg-sprite-loader": "^6.0.11",
     "typescript": "^4.5.2",
     "unplugin-auto-import": "^0.5.1",
     "unplugin-vue-components": "^0.17.6",
-    "vue-jest": "^5.0.0-0",
-    "svg-sprite-loader": "^6.0.11"
+    "vue-jest": "^5.0.0-0"
   },
   "_id": "shopadmin@0.1.0",
   "gitHooks": {
