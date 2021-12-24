@@ -8,7 +8,7 @@ const comp: AppRouteRecordRaw = {
   redirect: '/comp/basic',
   meta: {
     orderNo: 30,
-    icon: 'ion:layers-outline',
+    icon: 'aim',
     title: '组件'
   },
   children: [
@@ -17,7 +17,8 @@ const comp: AppRouteRecordRaw = {
       name: 'CropperDemo',
       component: () => import('@/views/comp/cropper/index.vue'),
       meta: {
-        title: '图片插件'
+        title: '图片插件',
+        svg: 'fold'
       }
     },
     {

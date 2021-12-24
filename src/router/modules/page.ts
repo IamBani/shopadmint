@@ -8,8 +8,9 @@ const page: AppRouteRecordRaw = {
   redirect: '/page-demo/form/basic',
   meta: {
     orderNo: 20,
-    icon: 'ion:aperture-outline',
-    title: '页面'
+    icon: 'aim',
+    title: '页面',
+    svg: 'unfold'
   }
 }
 

@@ -7,9 +7,9 @@ export type Component<T = any> =
   | (() => Promise<typeof import('*.vue')>)
   | (() => Promise<T>);
 
-export type AppRouteRecordRaw = RouteRecordRaw | {
+export interface AppRouteRecordRaw extends Omit<RouteRecordRaw, 'children'> {
   name: string;
-  meta: Meta;
+  meta: Meta & Menu;
   component?: Component | string;
   components?: Component;
   children?: AppRouteRecordRaw[];
@@ -32,7 +32,9 @@ interface Meta extends RouteMeta{
    // 是否固定标签
    affix?: boolean;
    // 图标，也是菜单图标
-   icon?: string;
+  icon?: string;
+  // svg图标, svg图标优先icon图标
+  svg?: string;
    // 内嵌iframe的地址
    frameSrc?: string;
    // 指定该路由切换的动画名
@@ -58,24 +60,11 @@ interface Meta extends RouteMeta{
 }
 
 export interface Menu {
-  name: string;
-
   icon?: string;
 
-  path: string;
-
-  // path contains param, auto assignment.
-  paramPath?: string;
+  path?: string;
 
   disabled?: boolean;
-
-  children?: Menu[];
-
-  orderNo?: number;
-
-  roles?: RoleEnum[];
-
-  meta?: Partial<Meta>;
 
   tag?: MenuTag;
 

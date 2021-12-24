@@ -1,7 +1,9 @@
 <template>
    <el-aside :width="width" class="aside-container">
+    <el-scrollbar height="100%">
      <logo></logo>
      <imenu></imenu>
+     </el-scrollbar>
    </el-aside>
 </template>
 
