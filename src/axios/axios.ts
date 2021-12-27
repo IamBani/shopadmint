@@ -24,20 +24,20 @@ class VAxios {
    // support form-data
    supportFormData(config: AxiosRequestConfig) {
     const headers = config.headers || this.options.headers;
-    const contentType = headers?.['Content-Type'] || headers?.['content-type'];
-
+     const contentType = headers?.['Content-Type'] || headers?.['content-type'];
+     console.log(contentType)
+    debugger
     if (
-      contentType !== ContentTypeEnum.FORM_URLENCODED ||
-      !Reflect.has(config, 'data') ||
       config.method?.toUpperCase() === RequestEnum.GET
     ) {
       return config;
-    }
-
-    return {
-      ...config,
-      data: qs.stringify(config.data, { arrayFormat: 'brackets' }),
-    };
+    } else if( config.method?.toUpperCase() === RequestEnum.POST) {
+      return {
+        ...config,
+        data: qs.stringify(config.data, { arrayFormat: 'brackets' }),
+      };
+     }
+     return config
   }
   setupInterceptors () {
     const transform = this.getTransform()
@@ -63,7 +63,6 @@ class VAxios {
         ignoreCancelToken !== undefined
           ? ignoreCancelToken
           : this.options.requestOptions?.ignoreCancelToken
-
       !ignoreCancel && axiosCanceler.addPending(config)
       if (requestInterceptors && isFunction(requestInterceptors)) {
         config = requestInterceptors(config, this.options)

@@ -21,14 +21,14 @@
 </template>
 
 <script lang="ts">
-import { AppRouteRecordRaw } from '@/router/types'
+import { AppRoute } from '@/router/types'
 import { computed, defineComponent, PropType, toRefs } from 'vue'
 
 export default defineComponent({
   name: 'el-sub-menu',
   props: {
     item: {
-      type: Object as PropType<AppRouteRecordRaw>,
+      type: Object as PropType<AppRoute>,
       default: () => ({})
     }
   },
@@ -36,7 +36,7 @@ export default defineComponent({
     const svg = 'svg-icon'
     const { item } = toRefs(props)
     const title = computed(() => {
-      return item.value.meta?.title
+      return item.value?.meta?.title
     })
     return {
       title,

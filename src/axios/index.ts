@@ -6,7 +6,7 @@ import { CreateAxiosOptions } from "./axiosTransform";
 function createAxios(opt?: Partial<CreateAxiosOptions>) {
   let options = {
     ...{
-      baseURL: 'http://localhost:3001/',
+      baseURL: 'http://localhost:8082/',
       ignoreCancelToken: true,
       requestOptions: {
         withToken: true,

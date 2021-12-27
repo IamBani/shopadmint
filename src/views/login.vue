@@ -10,8 +10,8 @@
         <span class="title">Vue Element Admin</span>
       </div>
       <el-form class="login-form" ref="formLoginRef"  :model="loginform"   :rules="rules">
-        <el-form-item prop="user">
-          <el-input v-model="loginform.user" placeholder="admin">
+        <el-form-item prop="username">
+          <el-input v-model="loginform.username" placeholder="admin">
             <template v-slot:prefix>
               <el-icon class="el-input__icon"><avatar /></el-icon>
             </template>
@@ -36,18 +36,24 @@ import bg from '@/assets/image/bg.jpg'
 import logo from '@/assets/image/logo.png'
 import { defineComponent, reactive, computed, ref, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
+import { useStore } from '@/store/index'
+import axios from 'axios'
+import { LoginParams } from '@/api/apiResponseInterface'
 export default defineComponent({
   setup () {
-    const loginform = reactive({
-      user: '',
+    const store = useStore()
+    const loginform:LoginParams = reactive({
+      username: '',
       password: ''
     })
     const formLoginRef = ref()
     const login = () => {
-      console.log(loginform.user)
-      formLoginRef.value.validate((valid, errform) => {
+      console.log(loginform.username)
+      formLoginRef.value.validate(async (valid, errform) => {
         if (valid) {
-          alert('submit!')
+          // axios.post('/')
+          const res = await store.dispatch('login/login', { ...loginform })
+          console.log(res)
         } else {
           console.log('error submit!!')
           for (const item of Object.keys(errform)) {
@@ -62,7 +68,7 @@ export default defineComponent({
       return `url(${bg})`
     })
     const rules = reactive({
-      user: [
+      username: [
         {
           required: true,
           message: '请输入用户名',
