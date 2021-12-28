@@ -14,14 +14,20 @@ requireAll(modules).forEach((key) => {
 })
 
 console.log(routeModuleList)
-routeModuleList.map((node: any) => ({ ...node })).filter((node) => {
-  console.log(node)
-})
-
+export const PARENT_LAYOUT_NAME = 'ParentLayout'
+export const getParentLayout = (_name?: string) => {
+  return () =>
+    new Promise((resolve) => {
+      resolve({
+        name: PARENT_LAYOUT_NAME
+      })
+    })
+}
 export const asyncRoutes: Array<AppRouteRecordRaw> = [
-  PAGE_NOT_FOUND_ROUTE,
-  ...routeModuleList
+  ...routeModuleList,
+  PAGE_NOT_FOUND_ROUTE
 ]
+
 const routes: Array<AppRouteRecordRaw> = [
   {
     path: '/login',

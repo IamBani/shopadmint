@@ -75,11 +75,12 @@ export interface MenuTag {
   content?: string;
   dot?: boolean;
 }
-
-export type AppRouteRecordRaw = {
+interface RouteRecord extends Omit<RouteRecordRaw, 'children'>{
   name: string;
   path: string,
   component?: Component | string;
-  redirect:string,
+  redirect?:string,
   children?: AppRouteRecordRaw[];
-} | AppRoute
+}
+
+export type AppRouteRecordRaw = RouteRecord | AppRoute

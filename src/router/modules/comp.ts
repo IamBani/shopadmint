@@ -5,7 +5,7 @@ const comp: AppRouteRecordRaw = {
   path: '/comp',
   name: 'Comp',
   component: loyou,
-  redirect: '/comp/basic',
+  redirect: '/comp/cropper',
   meta: {
     orderNo: 30,
     icon: 'aim',

@@ -34,11 +34,12 @@
 <script lang="ts">
 import bg from '@/assets/image/bg.jpg'
 import logo from '@/assets/image/logo.png'
-import { defineComponent, reactive, computed, ref, onMounted } from 'vue'
+import { defineComponent, reactive, computed, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { useStore } from '@/store/index'
-import axios from 'axios'
 import { LoginParams } from '@/api/apiResponseInterface'
+import router, { asyncRoutes } from '@/router'
+import { RouteRecordRaw } from 'vue-router'
 export default defineComponent({
   setup () {
     const store = useStore()
@@ -51,9 +52,14 @@ export default defineComponent({
       console.log(loginform.username)
       formLoginRef.value.validate(async (valid, errform) => {
         if (valid) {
-          // axios.post('/')
-          const res = await store.dispatch('login/login', { ...loginform })
-          console.log(res)
+          const { data, code } = await store.dispatch('login/login', { ...loginform })
+          console.log(asyncRoutes, code)
+          if (code === 200) {
+            asyncRoutes.forEach(item => {
+              router.addRoute(item as unknown as RouteRecordRaw)
+            })
+            router.push(`${asyncRoutes[0].redirect}`)
+          }
         } else {
           console.log('error submit!!')
           for (const item of Object.keys(errform)) {

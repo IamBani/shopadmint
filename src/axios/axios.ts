@@ -25,8 +25,6 @@ class VAxios {
    supportFormData(config: AxiosRequestConfig) {
     const headers = config.headers || this.options.headers;
      const contentType = headers?.['Content-Type'] || headers?.['content-type'];
-     console.log(contentType)
-    debugger
     if (
       config.method?.toUpperCase() === RequestEnum.GET
     ) {
@@ -113,7 +111,6 @@ class VAxios {
 
     conf = this.supportFormData(conf);
     return new Promise((resolve, reject) => {
-      console.log(conf)
       this.axiosInstance
         .request<any, AxiosResponse<Result>>(conf)
         .then((res: AxiosResponse<Result>) => {
@@ -126,7 +123,6 @@ class VAxios {
             }
             return;
           }
-          console.log(res)
           resolve(res as unknown as Promise<T>);
         })
         .catch((e: Error | AxiosError) => {

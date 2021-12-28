@@ -1,9 +1,9 @@
 <template>
     <el-sub-menu v-if="item.children && item.children?.length>0" :index="item.path" class="sub-menu">
        <template #title>
-          <component v-if="item.meta.svg" :is="svg" :icon-name="item.meta.svg" class="svg-icon"></component>
+          <component v-if="item?.meta?.svg" :is="svg" :icon-name="item?.meta?.svg" class="svg-icon"></component>
           <el-icon v-else>
-            <component :is="item.meta.icon"></component>
+            <component :is="item?.meta?.icon"></component>
           </el-icon>
          <span>{{title}}</span>
        </template>
@@ -12,9 +12,9 @@
         </template>
     </el-sub-menu>
     <el-menu-item v-else :index="item.path" class="sub-menu-item">
-       <component class="svg-icon" v-if="item.meta.svg" :is="svg" :icon-name="item.meta.svg" ></component>
-          <el-icon v-else>
-            <component :is="item.meta.icon"></component>
+       <component class="svg-icon" v-if="item?.meta?.svg" :is="svg" :icon-name="item?.meta?.svg" ></component>
+        <el-icon v-else>
+          <component :is="item?.meta?.icon"></component>
         </el-icon>
       <template #title>{{title}}</template>
     </el-menu-item>
