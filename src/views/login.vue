@@ -18,7 +18,7 @@
           </el-input>
         </el-form-item>
         <el-form-item  prop="password">
-          <el-input v-model="loginform.password" type="password" placeholder="888888">
+          <el-input show-password v-model="loginform.password" type="password" placeholder="888888">
             <template v-slot:prefix>
               <el-icon class="el-input__icon"><goods-filled /></el-icon>
             </template>
