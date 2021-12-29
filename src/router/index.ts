@@ -13,16 +13,6 @@ requireAll(modules).forEach((key) => {
   routeModuleList.push(...modList)
 })
 
-console.log(routeModuleList)
-export const PARENT_LAYOUT_NAME = 'ParentLayout'
-export const getParentLayout = (_name?: string) => {
-  return () =>
-    new Promise((resolve) => {
-      resolve({
-        name: PARENT_LAYOUT_NAME
-      })
-    })
-}
 export const asyncRoutes: Array<AppRouteRecordRaw> = [
   ...routeModuleList,
   PAGE_NOT_FOUND_ROUTE
@@ -38,26 +28,25 @@ const routes: Array<AppRouteRecordRaw> = [
     }
   },
   {
-    path: '/',
-    name: 'Homea',
-    component: () => import('@/components/layou/layou.vue'),
-    meta: {
-      title: ''
-    }
-  },
-  {
     path: '/home',
-    name: 'Home',
+    name: 'home',
     component: Home,
     meta: {
       title: ''
     }
   }
 ]
-
+const WHITE_NAME_LIST: string[] = []
+const getRouteNames = (array: any[]) =>
+  array.forEach((item) => {
+    WHITE_NAME_LIST.push(item.name, item.path)
+    getRouteNames(item.children || [])
+  })
+getRouteNames(routes)
+console.log(WHITE_NAME_LIST)
 const router = createRouter({
   history: createWebHashHistory(),
   routes: routes as unknown as RouteRecordRaw[]
 })
-
+export { WHITE_NAME_LIST }
 export default router

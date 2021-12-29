@@ -4,6 +4,7 @@ import { Module } from 'vuex'
 import loginState from './interface'
 import { login as httpLogin } from '@/axios/http/login'
 import { setItem } from '@/utils/storage'
+import { TOKEN_KEY } from '@/store/const'
 const login:Module<loginState, rootState> = {
   namespaced: true,
   state: {
@@ -17,7 +18,7 @@ const login:Module<loginState, rootState> = {
   actions: {
     setToken (context, info) {
       context.commit('token', info)
-      setItem('TOKEN_KEY', info)
+      setItem(TOKEN_KEY, info)
     },
     async login (context, params: LoginParams): Promise<GetUserInfoModel | any> {
       const { data } = await httpLogin(params)

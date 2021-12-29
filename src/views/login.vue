@@ -61,7 +61,6 @@ export default defineComponent({
             router.push(`${asyncRoutes[0].redirect}`)
           }
         } else {
-          console.log('error submit!!')
           for (const item of Object.keys(errform)) {
             ElMessage.error(errform[item][0].message)
             return false
