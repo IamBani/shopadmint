@@ -4,10 +4,13 @@ import { rootState, AllStateTypes } from './interface'
 import login from './modules/login/login'
 import user from './modules/user/user'
 import setting from './modules/setting/setting'
+import permission from './modules/permission/permission'
+
 const modules = {
   user,
   login,
-  setting
+  setting,
+  permission
 }
 export default createStore<rootState>({
   state: {

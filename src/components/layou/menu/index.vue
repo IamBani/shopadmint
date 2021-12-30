@@ -13,17 +13,25 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, PropType } from 'vue'
+import { AppRoute, AppRouteRecordRaw } from '@/router/types'
+import { defineComponent, computed } from 'vue'
 import menuItem from './menu-item/SimpleSubMenu.vue'
-import { AppRouteRecordRaw } from '@/router/types'
 import { useStore } from '@/store/index'
-import { asyncRoutes } from '@/router'
+import router, { asyncRoutes } from '@/router'
+import { useRouter } from 'vue-router'
 export default defineComponent({
   components: {
     menuItem
   },
   setup () {
     const items = asyncRoutes
+    const { getRoutes } = useRouter()
+    console.log(getRoutes())
+    const filterArray = getRoutes().filter(item => {
+      return !item?.meta?.hideMenu
+    })
+    console.log(filterArray)
+
     const store = useStore()
     const isCollapse = computed(() => {
       return store.getters['setting/tenfold']

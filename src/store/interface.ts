@@ -1,4 +1,5 @@
 import loginState from './modules/login/interface'
+import permissionState from './modules/permission/interface'
 import settingState from './modules/setting/interface'
 import userState from './modules/user/interface'
 
@@ -8,5 +9,6 @@ export interface rootState {
 export interface AllStateTypes{
   user:userState,
   login: loginState,
-  setting:settingState
+  setting: settingState,
+  permission:permissionState
 }

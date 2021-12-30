@@ -1,4 +1,7 @@
+import { RoleEnum } from '@/enums/roleEnum'
+
 interface userState {
-  username:string
+  username: string,
+  roleList: RoleEnum[],
 }
 export default userState

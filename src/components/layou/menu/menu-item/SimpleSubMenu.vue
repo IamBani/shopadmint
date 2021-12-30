@@ -21,14 +21,14 @@
 </template>
 
 <script lang="ts">
-import { AppRoute } from '@/router/types'
+import { AppRoute, AppRouteRecordRaw } from '@/router/types'
 import { computed, defineComponent, PropType, toRefs } from 'vue'
 
 export default defineComponent({
   name: 'el-sub-menu',
   props: {
     item: {
-      type: Object as PropType<AppRoute>,
+      type: Object as PropType<AppRouteRecordRaw>,
       default: () => ({})
     }
   },

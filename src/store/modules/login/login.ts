@@ -8,7 +8,7 @@ import { TOKEN_KEY } from '@/store/const'
 const login:Module<loginState, rootState> = {
   namespaced: true,
   state: {
-    token: '123'
+    token: ''
   },
   mutations: {
     token (state, info) {

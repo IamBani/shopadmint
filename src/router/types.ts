@@ -9,7 +9,7 @@ export type Component<T = any> =
 
 export interface AppRoute extends Omit<RouteRecordRaw, 'children'> {
   name: string;
-  meta: Meta & Menu;
+  meta: Menu;
   component?: Component | string;
   components?: Component;
   children?: AppRouteRecordRaw[];
@@ -59,7 +59,7 @@ interface Meta extends RouteMeta{
    hidePathForChildren?: boolean;
 }
 
-export interface Menu {
+export interface Menu extends Meta {
   icon?: string;
 
   path?: string;

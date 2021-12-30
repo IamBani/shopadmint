@@ -24,15 +24,9 @@ const routes: Array<AppRouteRecordRaw> = [
     name: 'login',
     component: () => import('@/views/login.vue'),
     meta: {
-      title: ''
-    }
-  },
-  {
-    path: '/home',
-    name: 'home',
-    component: Home,
-    meta: {
-      title: ''
+      title: '',
+      hideMenu: true,
+      hideBreadcrumb: true
     }
   }
 ]
