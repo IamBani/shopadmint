@@ -5,6 +5,8 @@ import permissionState from './interface'
 import user from '../user/user'
 import { toRaw } from 'vue'
 import { RoleEnum } from '@/enums/roleEnum'
+import { filter } from '@/utils/tree'
+import router, { asyncRoutes } from '@/router'
 const permission:Module<permissionState, rootState> = {
   namespaced: true,
   state: {
@@ -16,8 +18,8 @@ const permission:Module<permissionState, rootState> = {
     }
   },
   actions: {
-    buildRoutesAction ({ rootGetters }) {
-      const routes: AppRouteRecordRaw[] = []
+    buildRoutesAction ({ rootGetters, commit }) {
+      let routes: AppRouteRecordRaw[] = []
       const roleList:RoleEnum[] = toRaw(rootGetters['user/getRoleList']) || []
       const routeFilter = (route: AppRouteRecordRaw) => {
         const { meta } = route
@@ -25,15 +27,17 @@ const permission:Module<permissionState, rootState> = {
         if (!roles) return true
         return roleList.some((role) => roles.includes(role))
       }
-      // routes = filter(asyncRoutes, routeFilter)
+      const menuList = routes = filter(asyncRoutes, routeFilter)
       // routes = routes.filter(routeFilter)
       // const menuList = transformRouteToMenu(routes, true)
       // routes = filter(routes, routeRemoveIgnoreFilter)
       // routes = routes.filter(routeRemoveIgnoreFilter)
-      // menuList.sort((a, b) => {
-      //   return (a.meta?.orderNo || 0) - (b.meta?.orderNo || 0)
-      // })
-      // return routes
+      menuList.sort((a, b) => {
+        return (a?.meta?.orderNo || 0) - (b?.meta?.orderNo || 0)
+      })
+      console.log(routes, roleList, 'sds')
+      commit('setBackMenuList', routes)
+      return routes
     }
   },
   getters: {

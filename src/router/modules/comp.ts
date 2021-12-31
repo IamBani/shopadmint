@@ -1,4 +1,5 @@
 import loyou from '@/components/layou/layou.vue'
+import { RoleEnum } from '@/enums/roleEnum'
 import { AppRouteRecordRaw } from '../types'
 
 const comp: AppRouteRecordRaw = {
@@ -26,7 +27,8 @@ const comp: AppRouteRecordRaw = {
       name: 'CountTo',
       component: () => import('@/views/comp/count-to/index.vue'),
       meta: {
-        title: '数字组件'
+        title: '数字组件',
+        roles: [RoleEnum.SUPER, RoleEnum.TEST]
       }
     },
     {

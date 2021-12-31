@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, Method, AxiosInstance, AxiosResponse, AxiosError } from 'axios'
 import router from '@/router'
-import store from '@/store'
+import { getItem } from '@/utils/storage'
 import { ElMessage, ElLoading } from 'element-plus'
 import { CreateAxiosOptions } from './axiosTransform'
 import { AxiosCanceler } from './axiosCancel'
@@ -8,6 +8,9 @@ import { isFunction } from '@/utils/is'
 import { RequestOptions, Result } from 'types/axios'
 import qs from "qs"
 import { ContentTypeEnum, RequestEnum } from '@/enums/httpEnum'
+import { TOKEN_KEY } from '@/store/const'
+
+
 class VAxios {
   axiosInstance: AxiosInstance;
   readonly options:CreateAxiosOptions
@@ -56,7 +59,10 @@ class VAxios {
         // @ts-ignore
         headers: { ignoreCancelToken }
       } = config
-     
+      if (getItem(TOKEN_KEY)) {
+        config.headers ={}
+        config.headers.Authorization = `Bearer ${getItem(TOKEN_KEY)}`
+      }
       const ignoreCancel =
         ignoreCancelToken !== undefined
           ? ignoreCancelToken

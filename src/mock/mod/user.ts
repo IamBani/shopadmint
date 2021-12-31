@@ -6,7 +6,8 @@ Mock.setup({
 })
 
 export function user () {
-  Mock.mock('/user', 'get', () => {
+  Mock.mock('/user', 'get', (option) => {
+    console.log(option)
     return {
       code: 200,
       message: '成功',

@@ -55,9 +55,9 @@ export default defineComponent({
           const { data, code } = await store.dispatch('login/login', { ...loginform })
           console.log(asyncRoutes, code)
           if (code === 200) {
-            asyncRoutes.forEach(item => {
-              router.addRoute(item as unknown as RouteRecordRaw)
-            })
+            // asyncRoutes.forEach(item => {
+            //   router.addRoute(item as unknown as RouteRecordRaw)
+            // })
             router.push(`${asyncRoutes[0].redirect}`)
           }
         } else {
