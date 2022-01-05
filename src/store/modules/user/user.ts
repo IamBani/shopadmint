@@ -14,6 +14,9 @@ const user:Module<userState, rootState> = {
   getters: {
     getRoleList (state):RoleEnum[] {
       return state.roleList
+    },
+    getUserInfo (state) {
+      return state.userInfo
     }
   },
   mutations: {
@@ -27,10 +30,9 @@ const user:Module<userState, rootState> = {
     }
   },
   actions: {
-    async getUser ({ rootGetters, commit }) {
+    async setUser ({ rootGetters, commit }) {
       if (!rootGetters['login/getToken']) { return }
       const { data } = await httpUser()
-      console.log(data)
       const userInfo = data.data
       const { roles = [] } = userInfo
       if (isArray(roles)) {

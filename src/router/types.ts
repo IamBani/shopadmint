@@ -35,6 +35,8 @@ interface Meta extends RouteMeta{
   icon?: string;
   // svg图标, svg图标优先icon图标
   svg?: string;
+  // 子路由当根路由使用
+  single?: boolean;
    // 内嵌iframe的地址
    frameSrc?: string;
    // 指定该路由切换的动画名

@@ -13,7 +13,6 @@ import { defineComponent, ref } from 'vue'
 import saside from '@/components/layou/aside/aside.vue'
 import shead from '@/components/layou/header/header.vue'
 import smain from '@/components/layou/main/main.vue'
-import router from '@/router/index'
 export default defineComponent({
   components: {
     saside,
@@ -21,7 +20,6 @@ export default defineComponent({
     smain
   },
   setup () {
-    console.log(router.getRoutes())
     return {}
   }
 })

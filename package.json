@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@element-plus/icons": "^0.0.11",
+    "@vue/babel-plugin-jsx": "^1.1.1",
     "@vue/composition-api": "^1.4.2",
     "axios": "^0.24.0",
     "element-plus": "^1.2.0-beta.5",

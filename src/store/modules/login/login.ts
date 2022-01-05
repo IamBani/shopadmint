@@ -26,7 +26,7 @@ const login:Module<loginState, rootState> = {
       const { data } = await httpLogin(params)
       const { token } = data.data
       context.dispatch('setToken', token)
-      await context.dispatch('user/getUser', {}, { root: true })
+      await context.dispatch('user/setUser', {}, { root: true })
 
       const routes = await context.dispatch('permission/buildRoutesAction', {}, { root: true })
 

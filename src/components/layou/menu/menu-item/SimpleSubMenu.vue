@@ -1,5 +1,5 @@
 <template>
-    <el-sub-menu v-if="item.children && item.children?.length>0" :index="item.path" class="sub-menu">
+    <el-sub-menu v-if="item.children && item.children?.length>0" :index="path" class="sub-menu">
        <template #title>
           <component v-if="item?.meta?.svg" :is="svg" :icon-name="item?.meta?.svg" class="svg-icon"></component>
           <el-icon v-else>
@@ -8,10 +8,10 @@
          <span>{{title}}</span>
        </template>
        <template v-for="i in item.children" :key="i.path">
-         <SimpleSubMenu :item="i"></SimpleSubMenu>
-        </template>
+         <SimpleSubMenu :item="i" :path="path+'/'+i.path"></SimpleSubMenu>
+       </template>
     </el-sub-menu>
-    <el-menu-item v-else :index="item.path" class="sub-menu-item">
+    <el-menu-item v-else :index="path" class="sub-menu-item">
        <component class="svg-icon" v-if="item?.meta?.svg" :is="svg" :icon-name="item?.meta?.svg" ></component>
         <el-icon v-else>
           <component :is="item?.meta?.icon"></component>
@@ -29,10 +29,17 @@ export default defineComponent({
   props: {
     item: {
       type: Object as PropType<AppRouteRecordRaw>,
-      default: () => ({})
+      default: () => ({}),
+      required: true
+    },
+    path: {
+      type: String,
+      default: '',
+      required: true
     }
   },
   setup (props) {
+    console.log(props.path)
     const svg = 'svg-icon'
     const { item } = toRefs(props)
     const title = computed(() => {

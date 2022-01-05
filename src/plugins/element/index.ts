@@ -2,10 +2,10 @@ import { App } from 'vue'
 import {
   ElButton, ElSwitch, ElForm, ElFormItem, ElInput, ElIcon, ElCard, ElCheckbox,
   ElContainer, ElAside, ElHeader, ElMain, ElMenu, ElResult,
-  ElBreadcrumb, ElRow, ElCol, ElAlert,
+  ElBreadcrumb, ElRow, ElCol,
   ElInputNumber, ElDropdown, ElDropdownItem,
   ElAvatar, ElTag, ElTabs, ElSpace, ElDialog, ElRadio, ElDatePicker, ElSelect, ElUpload, ElTimePicker, ElTable, ElMessage,
-  ElConfigProvider, ElDescriptions, ElDescriptionsItem, ElEmpty, ElMessageBox
+  ElConfigProvider, ElDescriptions, ElDescriptionsItem, ElEmpty, ElSubMenu, ElMenuItem
 } from 'element-plus'
 import * as ElIconModules from '@element-plus/icons'
 import 'element-plus/dist/index.css'
@@ -36,6 +36,8 @@ export default {
     Vue.component(ElAside.name, ElAside)
     Vue.component(ElMain.name, ElMain)
     Vue.component(ElMenu.name, ElMenu)
+    Vue.component(ElSubMenu.name, ElSubMenu)
+    Vue.component(ElMenuItem.name, ElMenuItem)
     Vue.component(ElBreadcrumb.name, ElBreadcrumb)
     Vue.component(ElResult.name, ElResult)
     Vue.component(ElRow.name, ElRow)

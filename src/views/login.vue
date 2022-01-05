@@ -11,14 +11,14 @@
       </div>
       <el-form class="login-form" ref="formLoginRef"  :model="loginform"   :rules="rules">
         <el-form-item prop="username">
-          <el-input v-model="loginform.username" placeholder="admin">
+          <el-input v-model="loginform.username" @keydown.enter="login" placeholder="admin">
             <template v-slot:prefix>
               <el-icon class="el-input__icon"><avatar /></el-icon>
             </template>
           </el-input>
         </el-form-item>
         <el-form-item  prop="password">
-          <el-input show-password v-model="loginform.password" type="password" placeholder="888888">
+          <el-input show-password @keydown.enter="login" v-model="loginform.password" type="password" placeholder="888888">
             <template v-slot:prefix>
               <el-icon class="el-input__icon"><goods-filled /></el-icon>
             </template>
@@ -49,11 +49,9 @@ export default defineComponent({
     })
     const formLoginRef = ref()
     const login = () => {
-      console.log(loginform.username)
       formLoginRef.value.validate(async (valid, errform) => {
         if (valid) {
           const { data, code } = await store.dispatch('login/login', { ...loginform })
-          console.log(asyncRoutes, code)
           if (code === 200) {
             // asyncRoutes.forEach(item => {
             //   router.addRoute(item as unknown as RouteRecordRaw)
