@@ -7,7 +7,7 @@ const page: AppRouteRecordRaw = {
   component: loyou,
   redirect: '/page-demo/form/basic',
   meta: {
-    title: '页面',
+    title: '页面123',
     single: true
   },
   children: [{

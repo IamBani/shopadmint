@@ -25,11 +25,30 @@ const comp: AppRouteRecordRaw = {
     {
       path: 'countTo',
       name: 'CountTo',
+      redirect: '/comp/countTo/basic',
       component: () => import('@/views/comp/count-to/index.vue'),
       meta: {
         title: '数字组件',
+        svg: 'unfold',
         roles: [RoleEnum.SUPER, RoleEnum.TEST]
-      }
+      },
+      children: [{
+        path: 'basic',
+        name: 'basic',
+        component: () => import('@/views/comp/from/basic.vue'),
+        meta: {
+          title: '基础表单组件',
+          svg: 'fold'
+        }
+      }, {
+        path: 'desc',
+        name: 'desc',
+        component: () => import('@/views/comp/from/desc.vue'),
+        meta: {
+          title: '动态表单组件',
+          icon: 'edit'
+        }
+      }]
     },
     {
       path: 'qrcode',

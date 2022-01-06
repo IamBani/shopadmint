@@ -1,5 +1,5 @@
 <template>
-  <svg :fill="iconColor" class="svg-icon" :class="[iconClass]">
+  <svg class="svg-icon" :class="[iconClass]">
     <use :xlink:href="`#icon-${iconName}`" />
   </svg>
 </template>
@@ -13,10 +13,6 @@ export default defineComponent({
     iconName: {
       type: String,
       required: true
-    },
-    iconColor: {
-      type: String,
-      default: '#666'
     },
     iconClass: {
       type: String
@@ -39,7 +35,6 @@ export default defineComponent({
   width: 1em;
   height: 1em;
   vertical-align: -0.15em;
-  // fill: currentColor;
   overflow: hidden;
 }
 

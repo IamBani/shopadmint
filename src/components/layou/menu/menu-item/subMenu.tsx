@@ -1,5 +1,6 @@
 import { AppRouteRecordRaw } from '@/router/types'
-import { computed, defineComponent, PropType, toRefs, resolveComponent, h } from 'vue'
+import { computed, defineComponent, PropType, toRefs, resolveComponent, h, watch, unref } from 'vue'
+import { useRouter } from 'vue-router'
 import './css.scss'
 const subMenu = defineComponent({
   name: 'subMenu',
@@ -13,6 +14,10 @@ const subMenu = defineComponent({
       type: String,
       default: '',
       required: true
+    },
+    pathname: {
+      type: String,
+      default: ''
     }
   },
   setup (props) {
@@ -22,7 +27,11 @@ const subMenu = defineComponent({
       return item.value?.meta?.title
     })
     function isIcon () {
-      return item.value?.meta?.svg ? h(resolveComponent(svg), { iconName: item.value?.meta?.svg })
+      return item.value?.meta?.svg ? (
+        <i class="el-icon">
+          {h(resolveComponent(svg), { iconName: item.value?.meta?.svg, class: 'svg-icon action' })}
+        </i>
+      )
         : (
           <el-icon>
             {h(resolveComponent(item.value?.meta?.icon || ''))}
@@ -73,17 +82,18 @@ const subMenu = defineComponent({
           </>
         )
       } else {
+        // console.log(path.value)
         return (
           <>
             <el-menu-item index={path.value} class="sub-menu-item"
               v-slots={{
                 title: () => (
                   <>
-                    {isIcon()}
                     <span>{t.value}</span>
                   </>
                 )
               }}>
+              {isIcon()}
             </el-menu-item>
           </>
         )

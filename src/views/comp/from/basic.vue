@@ -1,5 +1,5 @@
 <template>
-  <div>数字组件<router-view></router-view></div>
+  <div>基础表单</div>
 </template>
 
 <script lang="ts">
@@ -7,9 +7,7 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   setup () {
-    return {
-
-    }
+    return {}
   }
 })
 </script>

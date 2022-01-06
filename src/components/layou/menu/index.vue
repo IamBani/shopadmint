@@ -5,9 +5,10 @@
     class="el-menu-vertical-demo"
     :collapse="isCollapse"
     :collapse-transition="false"
+    @select="activation"
   >
    <template v-for="item in items" :key="item.path">
-    <sub-menu :item="item" :path="item.path"></sub-menu>
+    <sub-menu :item="item" :path="item.path" :pathname="pathname"></sub-menu>
   </template>
   </el-menu>
 </template>
@@ -27,16 +28,21 @@ export default defineComponent({
   },
   setup () {
     const { currentRoute } = useRouter()
-    const items = menuDataFilter()
-    useSplitMenu()
     const store = useStore()
+    const items = menuDataFilter()
+    const pathname = useSplitMenu()
     const isCollapse = computed(() => {
       return store.getters['setting/tenfold']
     })
+    const activation = (index) => {
+      console.log(index)
+    }
     return {
       isCollapse,
       items,
-      currentRoute
+      currentRoute,
+      activation,
+      pathname
     }
   }
 })

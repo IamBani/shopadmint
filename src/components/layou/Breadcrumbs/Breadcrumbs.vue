@@ -1,24 +1,44 @@
 <template>
-  <el-breadcrumb separator="/">
-    <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
-    <el-breadcrumb-item
-      ><a href="/">promotion management</a></el-breadcrumb-item
-    >
-    <el-breadcrumb-item>promotion list</el-breadcrumb-item>
-    <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
+  <el-breadcrumb separator="/" class="breadcrumb">
+  <template v-for="(item,index) in breadcrumbData" :key="item.path">
+    <el-breadcrumb-item class="no-redirect" v-if="breadcrumbData.length-1 === index">{{item.meta?.title}}</el-breadcrumb-item>
+    <el-breadcrumb-item v-else class="redirect" :to="item.path"> {{item.meta?.title}}</el-breadcrumb-item>
+  </template>
   </el-breadcrumb>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, watch, unref, ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   setup () {
-    return {}
+    const breadcrumbData = ref([]) as any
+    const { currentRoute } = useRouter()
+    watch([() => unref(currentRoute).path], () => {
+      breadcrumbData.value.length = 0
+      if (currentRoute.value?.meta?.single) {
+        breadcrumbData.value.push(currentRoute.value)
+      } else {
+        breadcrumbData.value = currentRoute.value.matched
+      }
+    }, {
+      immediate: true
+    })
+    return {
+      breadcrumbData
+    }
   }
 })
 </script>
 
-<style>
+<style scoped lang="scss">
+.breadcrumb{
+  .no-redirect{
 
+  }
+  .redirect{
+    cursor: pointer;
+  }
+}
 </style>
