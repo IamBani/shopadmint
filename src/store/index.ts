@@ -5,12 +5,14 @@ import login from './modules/login/login'
 import user from './modules/user/user'
 import setting from './modules/setting/setting'
 import permission from './modules/permission/permission'
+import language from './modules/language/language'
 
 const modules = {
   user,
   login,
   setting,
-  permission
+  permission,
+  language
 }
 export default createStore<rootState>({
   state: {
