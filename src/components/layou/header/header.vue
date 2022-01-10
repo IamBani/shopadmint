@@ -7,9 +7,10 @@
       </el-col>
       <el-col :span="12">
         <el-space class="space">
-          <el-icon><search /></el-icon>
-          <el-icon><full-screen /></el-icon>
-          <el-icon><refresh /></el-icon>
+          <el-icon class="icon"><search /></el-icon>
+          <el-icon class="icon"><full-screen /></el-icon>
+          <el-icon class="icon"><refresh /></el-icon>
+          <Il8n></Il8n>
           <el-dropdown class="dropdown">
             <span class="dropdown-title">
               <el-avatar
@@ -36,10 +37,12 @@ import { defineComponent } from 'vue'
 import variables from '@/style/index.module.scss'
 import hamburger from '../hamburger/hamburger.vue'
 import Breadcrumbs from '../Breadcrumbs/Breadcrumbs.vue'
+import Il8n from '../i18n/i18n.vue'
 export default defineComponent({
   components: {
     hamburger,
-    Breadcrumbs
+    Breadcrumbs,
+    Il8n
   },
   setup () {
     console.log(variables)
@@ -58,6 +61,7 @@ export default defineComponent({
   width: 100%;
   .row {
     width: 100%;
+    height: 100%;
     .left-panel {
       @include flex-item-center;
       .bread {
@@ -68,6 +72,13 @@ export default defineComponent({
       float: right;
       display: flex;
       height: 100%;
+      cursor: pointer;
+      ::v-deep .el-space__item{
+        padding-left:8px;
+      }
+      .icon{
+        font-size: 16px;
+      }
       .dropdown {
         .dropdown-title {
           // height: $herder-height;

@@ -5,7 +5,7 @@ import languageState from './interface'
 const language:Module<languageState, rootState> = {
   namespaced: true,
   state: {
-    lang: ''
+    lang: 'zh-CN'
   },
   mutations: {
   },

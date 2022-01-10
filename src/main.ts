@@ -7,6 +7,7 @@ import store, { key } from './store'
 import mock from '@/mock/index'
 import './style/css/index.css'
 import './style/variables.scss'
+import { setupI18n } from './locales/setupI18n'
 if (process.env.NODE_ENV === 'development') {
   mock()
 }
@@ -17,6 +18,7 @@ app.use(store, key).use(router)
 const bootstrap = () => {
   // router-guard
   setupRouterGuard(router)
+  setupI18n(app)
   app.mount('#app')
 }
 bootstrap()

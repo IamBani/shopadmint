@@ -1,10 +1,22 @@
+import store from '@/store'
 import { App } from 'vue'
 import { createI18n, I18n, I18nOptions } from 'vue-i18n'
 
 export let i18n: ReturnType<typeof createI18n>
 
-function createI18nOptions (): Promise<I18nOptions> {
-  return Promise.resolve({})
+async function createI18nOptions (): Promise<I18nOptions> {
+  const locale = store.getters['language/getlange']
+  const defaultLocal = await import(`./lang/${locale}.ts`)
+  const message = defaultLocal.default?.message ?? {}
+  console.log(message)
+  return Promise.resolve({
+    legacy: false,
+    globalInjection: true,
+    locale: locale,
+    messages: {
+      [locale]: message
+    }
+  })
   // return {
   //   // legacy: false,
   //   // locale,
@@ -20,6 +32,7 @@ function createI18nOptions (): Promise<I18nOptions> {
 
 export async function setupI18n (app: App) {
   const options = await createI18nOptions()
+  console.log(options)
   i18n = createI18n(options) as I18n
   app.use(i18n)
 }

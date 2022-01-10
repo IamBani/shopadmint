@@ -1,5 +1,6 @@
 import loyou from '@/components/layou/layou.vue'
 import { RoleEnum } from '@/enums/roleEnum'
+import { t } from '@/hook/web/useI18n'
 import { AppRouteRecordRaw } from '../types'
 
 const comp: AppRouteRecordRaw = {
@@ -10,7 +11,7 @@ const comp: AppRouteRecordRaw = {
   meta: {
     orderNo: 30,
     icon: 'aim',
-    title: '组件'
+    title: t('routes.dynamicSidebar.comp.comp')
   },
   children: [
     {
@@ -25,30 +26,12 @@ const comp: AppRouteRecordRaw = {
     {
       path: 'countTo',
       name: 'CountTo',
-      redirect: '/comp/countTo/basic',
       component: () => import('@/views/comp/count-to/index.vue'),
       meta: {
         title: '数字组件',
         svg: 'unfold',
         roles: [RoleEnum.SUPER, RoleEnum.TEST]
-      },
-      children: [{
-        path: 'basic',
-        name: 'basic',
-        component: () => import('@/views/comp/from/basic.vue'),
-        meta: {
-          title: '基础表单组件',
-          svg: 'fold'
-        }
-      }, {
-        path: 'desc',
-        name: 'desc',
-        component: () => import('@/views/comp/from/desc.vue'),
-        meta: {
-          title: '动态表单组件',
-          icon: 'edit'
-        }
-      }]
+      }
     },
     {
       path: 'qrcode',
@@ -56,6 +39,23 @@ const comp: AppRouteRecordRaw = {
       component: () => import('@/views/comp/qrcode/index.vue'),
       meta: {
         title: '二维码'
+      }
+    },
+    {
+      path: 'basic',
+      name: 'basic',
+      component: () => import('@/views/comp/from/basic.vue'),
+      meta: {
+        title: '基础表单组件',
+        svg: 'fold'
+      }
+    }, {
+      path: 'desc',
+      name: 'desc',
+      component: () => import('@/views/comp/from/desc.vue'),
+      meta: {
+        title: '动态表单组件',
+        icon: 'edit'
       }
     }
   ]
