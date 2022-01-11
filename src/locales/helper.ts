@@ -21,6 +21,12 @@ function _basePath (path) {
   return path.replace(/\[/g, '.').replace(/\]/g, '').split('.')
 }
 
+export const loadLocalePool: LocaleType[] = []
+/* eslint-disable no-unused-expressions */
+export function setHtmlPageLang (locale: LocaleType):void {
+  window.document.querySelector('html')?.setAttribute('lang', locale)
+}
+
 export function genMessage (langs, prefix = 'lang') {
   const obj: Recordable = {}
 

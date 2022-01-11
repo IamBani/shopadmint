@@ -13,12 +13,14 @@ if (process.env.NODE_ENV === 'development') {
 }
 const app = createApp(App)
 app.use(element)
-app.use(store, key).use(router)
+app.use(store, key)
 
-const bootstrap = () => {
+const bootstrap = async () => {
   // router-guard
+  debugger
+  app.use(router)
   setupRouterGuard(router)
-  setupI18n(app)
+  await setupI18n(app)
   app.mount('#app')
 }
 bootstrap()

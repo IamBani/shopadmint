@@ -19,7 +19,7 @@ const comp: AppRouteRecordRaw = {
       name: 'CropperDemo',
       component: () => import('@/views/comp/cropper/index.vue'),
       meta: {
-        title: '图片插件',
+        title: t('routes.dynamicSidebar.comp.cropperImage'),
         svg: 'fold'
       }
     },
@@ -28,7 +28,7 @@ const comp: AppRouteRecordRaw = {
       name: 'CountTo',
       component: () => import('@/views/comp/count-to/index.vue'),
       meta: {
-        title: '数字组件',
+        title: t('routes.dynamicSidebar.comp.countTo'),
         svg: 'unfold',
         roles: [RoleEnum.SUPER, RoleEnum.TEST]
       }
@@ -38,7 +38,7 @@ const comp: AppRouteRecordRaw = {
       name: 'QrCodeDemo',
       component: () => import('@/views/comp/qrcode/index.vue'),
       meta: {
-        title: '二维码'
+        title: t('routes.dynamicSidebar.comp.qrcode')
       }
     },
     {
@@ -46,7 +46,7 @@ const comp: AppRouteRecordRaw = {
       name: 'basic',
       component: () => import('@/views/comp/from/basic.vue'),
       meta: {
-        title: '基础表单组件',
+        title: t('routes.dynamicSidebar.comp.formBasic'),
         svg: 'fold'
       }
     }, {
@@ -54,7 +54,7 @@ const comp: AppRouteRecordRaw = {
       name: 'desc',
       component: () => import('@/views/comp/from/desc.vue'),
       meta: {
-        title: '动态表单组件',
+        title: t('routes.dynamicSidebar.comp.formHigh'),
         icon: 'edit'
       }
     }

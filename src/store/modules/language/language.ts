@@ -6,8 +6,12 @@ const language:Module<languageState, rootState> = {
   namespaced: true,
   state: {
     lang: 'zh-CN'
+    // lang: 'en'
   },
   mutations: {
+    setLang (state, data) {
+      state.lang = data
+    }
   },
   getters: {
     getlange (state: languageState): string {

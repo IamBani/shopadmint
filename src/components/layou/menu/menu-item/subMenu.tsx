@@ -24,13 +24,10 @@ const subMenu = defineComponent({
   setup (props) {
     const { t } = useI18n()
     const store = useStore()
-    const locale = store.getters['language/getlange']
     const { item, path } = toRefs(props)
     const svg = 'svg-icon'
-    console.log(item)
-    console.log(t('message.zh-CN.common.back'))
     const title = computed(() => {
-      return item.value?.meta?.title
+      return t(item.value?.meta?.title as string)
     })
     function isIcon () {
       return item.value?.meta?.svg ? (

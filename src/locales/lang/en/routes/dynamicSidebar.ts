@@ -6,5 +6,8 @@ export default {
     cropperImage: 'Cropper Image',
     formBasic: 'Basic Form',
     formHigh: 'Advanced Form'
+  },
+  page: {
+    page: 'page'
   }
 }

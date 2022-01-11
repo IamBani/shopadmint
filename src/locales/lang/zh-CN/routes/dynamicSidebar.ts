@@ -6,5 +6,8 @@ export default {
     cropperImage: '图片裁剪',
     formBasic: '基础表单',
     formHigh: '高级表单'
+  },
+  page: {
+    page: '页面'
   }
 }
