@@ -31,18 +31,23 @@
       </el-col>
     </el-row>
   </el-header>
+  <el-header class="tabs-header">
+      <tabs class="tabs"></tabs>
+  </el-header>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
 import variables from '@/style/index.module.scss'
 import hamburger from '../hamburger/hamburger.vue'
 import Breadcrumbs from '../Breadcrumbs/Breadcrumbs.vue'
+import tabs from '@/components/layou/tabs/tab.vue'
 import Il8n from '../i18n/i18n.vue'
 export default defineComponent({
   components: {
     hamburger,
     Breadcrumbs,
-    Il8n
+    Il8n,
+    tabs
   },
   setup () {
     console.log(variables)
@@ -53,7 +58,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .header {
-  @include flex-item-center;
+  @include flex-item-center(column);
   // justify-content: space-between;
   height: $herder-height;
   // line-height: $herder-height;
@@ -90,6 +95,12 @@ export default defineComponent({
         }
       }
     }
+  }
+}
+.tabs-header{
+  height:$tabs-height;
+  .tabs{
+    height: 100%;
   }
 }
 </style>

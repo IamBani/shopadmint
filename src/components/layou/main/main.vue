@@ -1,10 +1,9 @@
 <template>
+  <el-scrollbar>
   <el-main>
-   <div @click="a">
-    <el-button type="primary">main</el-button>
-   </div>
    <router-view></router-view>
   </el-main>
+  </el-scrollbar>
 </template>
 
 <script lang="ts">

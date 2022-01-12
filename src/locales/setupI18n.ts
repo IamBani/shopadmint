@@ -1,6 +1,7 @@
 import store from '@/store'
 import { App } from 'vue'
 import { createI18n, I18n, I18nOptions } from 'vue-i18n'
+import { setHtmlPageLang } from './helper'
 
 export let i18n: ReturnType<typeof createI18n>
 
@@ -9,6 +10,7 @@ async function createI18nOptions (): Promise<I18nOptions> {
   const defaultLocal = await import(`./lang/${locale}.ts`)
   const message = defaultLocal.default?.message ?? {}
   console.log(message)
+  setHtmlPageLang(locale)
   return Promise.resolve({
     legacy: false,
     globalInjection: true,
