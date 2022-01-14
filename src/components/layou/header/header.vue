@@ -99,6 +99,8 @@ export default defineComponent({
 }
 .tabs-header{
   height:$tabs-height;
+  background-color:#fff;
+  border-top: 1px solid #f6f6f6;
   .tabs{
     height: 100%;
   }

@@ -1,8 +1,10 @@
 <template>
   <el-scrollbar>
-  <el-main>
-   <router-view></router-view>
-  </el-main>
+    <el-main>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </el-main>
   </el-scrollbar>
 </template>
 
@@ -25,5 +27,4 @@ export default defineComponent({
 </script>
 
 <style>
-
 </style>

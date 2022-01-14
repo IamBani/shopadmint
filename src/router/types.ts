@@ -50,7 +50,7 @@ interface Meta extends RouteMeta{
    // 当前激活的菜单。用于配置详情页时左侧激活的菜单路径
    currentActiveMenu?: string;
    // 当前路由不再标签页显示
-   hideTab?: boolean;
+   hideTab?: boolean; // 用了
    // 当前路由不再菜单显示
    hideMenu?: boolean;
    // 菜单排序，只对第一级有效

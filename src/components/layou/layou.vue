@@ -29,5 +29,6 @@ export default defineComponent({
 .container{
   height:100vh;
   width:100vw;
+  background-color: #f6f8f9;
 }
 </style>
