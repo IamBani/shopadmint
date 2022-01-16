@@ -2,7 +2,7 @@ import { App } from 'vue'
 import {
   ElButton, ElSwitch, ElForm, ElFormItem, ElInput, ElIcon, ElCard, ElCheckbox,
   ElContainer, ElAside, ElHeader, ElMain, ElMenu, ElResult,
-  ElBreadcrumb, ElRow, ElCol,
+  ElBreadcrumb, ElRow, ElCol, ElPopover,
   ElInputNumber, ElDropdown, ElDropdownItem,
   ElAvatar, ElTag, ElTabs, ElSpace, ElDialog, ElRadio, ElDatePicker, ElSelect, ElUpload, ElTimePicker, ElTable, ElMessage,
   ElConfigProvider, ElDescriptions, ElDescriptionsItem, ElEmpty, ElSubMenu, ElMenuItem
@@ -53,6 +53,7 @@ export default {
     Vue.component(ElTimePicker.name, ElTimePicker)
     Vue.component(ElTable.name, ElTable)
     Vue.component(ElTag.name, ElTag)
+    Vue.component(ElPopover.name, ElPopover)
     Vue.component(ElConfigProvider.name, ElConfigProvider)
     Vue.component(ElDescriptions.name, ElDescriptions)
     Vue.component(ElDescriptionsItem.name, ElDescriptionsItem)

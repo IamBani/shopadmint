@@ -1,4 +1,5 @@
 export interface tabs {
   path?: string,
-  title?:string
+  title?: string,
+  isvisible:boolean
 }
