@@ -104,5 +104,6 @@ export default defineComponent({
   .tabs{
     height: 100%;
   }
+  line-height:$tabs-height;
 }
 </style>

@@ -21,7 +21,8 @@ module.exports = {
     'no-empty-function': 0,
     'no-unused-components': 0,
     "no-use-before-define": 'off',
-    "no-undef":'off'
+    "no-undef": 'off',
+    "space-before-function-paren":'off'
   },
   overrides: [
     {

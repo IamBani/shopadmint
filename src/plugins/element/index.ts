@@ -3,7 +3,7 @@ import {
   ElButton, ElSwitch, ElForm, ElFormItem, ElInput, ElIcon, ElCard, ElCheckbox,
   ElContainer, ElAside, ElHeader, ElMain, ElMenu, ElResult,
   ElBreadcrumb, ElRow, ElCol, ElPopover,
-  ElInputNumber, ElDropdown, ElDropdownItem,
+  ElInputNumber, ElDropdown, ElDropdownItem, ElTooltip,
   ElAvatar, ElTag, ElTabs, ElSpace, ElDialog, ElRadio, ElDatePicker, ElSelect, ElUpload, ElTimePicker, ElTable, ElMessage,
   ElConfigProvider, ElDescriptions, ElDescriptionsItem, ElEmpty, ElSubMenu, ElMenuItem
 } from 'element-plus'
@@ -60,6 +60,7 @@ export default {
     Vue.component(ElEmpty.name, ElEmpty)
     Vue.component(ElDropdown.name, ElDropdown)
     Vue.component(ElDropdownItem.name, ElDropdownItem)
+    Vue.component(ElTooltip.name, ElTooltip)
     Vue.config.globalProperties.$message = ElMessage
     registeredSvgIcon(Vue)
 

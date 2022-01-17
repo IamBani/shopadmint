@@ -19,11 +19,12 @@ declare global {
   const ElIcon: typeof import('element-plus/es')['ElIcon']
   const ElImage: typeof import('element-plus/es')['ElImage']
   const ElInput: typeof import('element-plus/es')['ElInput']
+  const ElLink: typeof import('element-plus/es')['ElLink']
   const ElMain: typeof import('element-plus/es')['ElMain']
   const ElMenu: typeof import('element-plus/es')['ElMenu']
-  const ElPopover: typeof import('element-plus/es')['ElPopover']
   const ElRow: typeof import('element-plus/es')['ElRow']
   const ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
   const ElSpace: typeof import('element-plus/es')['ElSpace']
+  const ElTooltip: typeof import('element-plus/es')['ElTooltip']
 }
 export {}
