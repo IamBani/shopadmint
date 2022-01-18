@@ -1,28 +1,36 @@
 <template>
-
+<!-- <el-space>
+      <draggable v-model="likeList" item-key="id">
+      <template #item="{ element:item,index }">
+        <div class="item">{{ item.id + "、" + item.name }}{{index}}</div>
+      </template>
+    </draggable>
+</el-space> -->
     <el-space>
-      <div v-for="(item, index) in tabs" :key="item.path">
-        <el-button
-          @contextmenu.prevent="operate(index, $event)"
-          @mouseenter="enter(index)"
-          @mouseleave="leave"
-          class="tab"
-          :class="item.path === pathname ? 'action' : ''"
-          :type="item.path === pathname ? 'primary' : 'default'"
-          plain
-          @click="changeRoute(item.path)"
-        >
-          {{ $t(item.title || "") }}
-          <transition name="el-fade-in">
-            <el-icon
-              v-show="i === index"
-              @click="close(index)"
-              class="el-icon--right"
-              ><close
-            /></el-icon>
-          </transition>
-        </el-button>
-      </div>
+      <draggable v-model="tabs" item-key="path">
+         <template #item="{element:item,index}">
+         <el-button
+            @contextmenu.prevent="operate(index, $event)"
+            @mouseenter="enter(index)"
+            @mouseleave="leave"
+            class="tab"
+            :class="item.path === pathname ? 'action' : ''"
+            :type="item.path === pathname ? 'primary' : 'default'"
+            plain
+            @click="changeRoute(item.path)"
+          >
+            {{ $t(item.title || "") }}
+            <transition name="el-fade-in">
+              <el-icon
+                v-show="i === index"
+                @click="close(index)"
+                class="el-icon--right"
+                ><close
+              /></el-icon>
+            </transition>
+          </el-button>
+        </template>
+      </draggable>
     </el-space>
   <el-tooltip
       ref="tooltipRef"
@@ -69,7 +77,11 @@
 import { defineComponent, onMounted, ref, unref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { tabs as tab } from './type'
+import draggable from 'vuedraggable'
 export default defineComponent({
+  components: {
+    draggable
+  },
   setup() {
     const i = ref(-1)
     const visible = ref(false)

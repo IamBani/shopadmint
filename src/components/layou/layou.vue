@@ -6,6 +6,7 @@
       <smain></smain>
     </el-container>
   </el-container>
+<configure></configure>
 </template>
 
 <script lang="ts">
@@ -13,11 +14,13 @@ import { defineComponent, ref } from 'vue'
 import saside from '@/components/layou/aside/aside.vue'
 import shead from '@/components/layou/header/header.vue'
 import smain from '@/components/layou/main/main.vue'
+import configure from '@/components/Configure/index.vue'
 export default defineComponent({
   components: {
     saside,
     shead,
-    smain
+    smain,
+    configure
   },
   setup () {
     return {}
