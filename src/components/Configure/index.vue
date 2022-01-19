@@ -12,18 +12,14 @@
     v-model="drawer"
     :append-to-body="false"
     title="项目配置"
+    size="330"
   >
     <div>
-    <el-divider>
-      <span class="fs16">主题</span>
-    </el-divider>
-     <!-- <el-switch
-      v-model="value2"
-      class="mt-2"
-      inline-prompt
-      :active-icon="Check"
-      :inactive-icon="Close"
-    /> -->
+      <themeTitle></themeTitle>
+      <navigation></navigation>
+      <SystemTheme title="系统主题">
+        <groupColor></groupColor>
+      </SystemTheme>
     </div>
   </el-drawer>
   </div>
@@ -31,8 +27,17 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-
+import theme from './src/theme.vue'
+import navigation from './src/navigation.vue'
+import SystemTheme from './src/systemTheme.vue'
+import groupColor from './src/groupColor.vue'
 export default defineComponent({
+  components: {
+    themeTitle: theme,
+    navigation,
+    SystemTheme,
+    groupColor
+  },
   setup() {
     const drawer = ref(false)
     return {
