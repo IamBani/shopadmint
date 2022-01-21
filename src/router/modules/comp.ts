@@ -40,24 +40,8 @@ const comp: AppRouteRecordRaw = {
       meta: {
         title: t('routes.dynamicSidebar.comp.qrcode')
       }
-    },
-    {
-      path: 'basic',
-      name: 'basic',
-      component: () => import('@/views/comp/from/basic.vue'),
-      meta: {
-        title: t('routes.dynamicSidebar.comp.formBasic'),
-        svg: 'fold'
-      }
-    }, {
-      path: 'desc',
-      name: 'desc',
-      component: () => import('@/views/comp/from/desc.vue'),
-      meta: {
-        title: t('routes.dynamicSidebar.comp.formHigh'),
-        icon: 'edit'
-      }
     }
+
   ]
 }
 export default comp

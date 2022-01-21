@@ -18,7 +18,6 @@ app.use(store, key)
 
 const bootstrap = async () => {
   // router-guard
-  debugger
   app.use(router)
   setupRouterGuard(router)
   await setupI18n(app)

@@ -14,7 +14,8 @@
       title="项目配置"
       size="330"
     >
-      <div>
+      <el-scrollbar class="">
+        <div class="box">
         <themeTitle></themeTitle>
         <navigation></navigation>
         <SystemTheme title="系统主题">
@@ -36,9 +37,19 @@
           ></groupColor>
         </SystemTheme>
          <SystemTheme title="界面功能">
-           <hmi></hmi>
+           <hmi title="分割菜单"></hmi>
+           <hmi title="固定展开菜单"></hmi>
+           <hmi title="切换页面关闭菜单"></hmi>
+           <hmi title="折叠菜单"></hmi>
+           <hmi title="侧边菜单拖拽"></hmi>
+           <hmi title="菜单搜索"></hmi>
+           <hmi title="侧边菜单手风琴模式"></hmi>
+           <hmi title="折叠菜单显示名称"></hmi>
+           <hmi title="固定header"></hmi>
+           <hmi title="固定Sidebar"></hmi>
         </SystemTheme>
-      </div>
+        </div>
+      </el-scrollbar>
     </el-drawer>
   </div>
 </template>
@@ -190,6 +201,10 @@ export default defineComponent({
 .drawer {
   ::v-deep .el-drawer__body {
     border-top: 1px solid var(--el-border-color-base);
+    padding: 0;
+  }
+  .box{
+    padding: var(--el-drawer-padding-primary);
   }
 }
 </style>

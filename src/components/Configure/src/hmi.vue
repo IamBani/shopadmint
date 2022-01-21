@@ -1,8 +1,8 @@
 <template>
   <div class="flex">
     <div class="flex justify-between align-center block">
-      <span>分割菜单</span>
-      <el-switch v-model="features.splitMeun" inline-prompt active-text="开" inactive-text="关">
+      <span>{{title}}</span>
+      <el-switch @change="handleChange" :disabled="disabled"  :model-value="def" inline-prompt active-text="开" inactive-text="关">
       </el-switch>
     </div>
   </div>
@@ -12,12 +12,26 @@
 import { defineComponent, reactive } from 'vue'
 
 export default defineComponent({
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    def: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  },
   setup() {
-    const features = reactive({
-      splitMeun: false
-    })
+    function handleChange(e) {
+      console.log(e)
+    }
     return {
-      features
+      handleChange
     }
   }
 })

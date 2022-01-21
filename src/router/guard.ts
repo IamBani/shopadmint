@@ -6,6 +6,7 @@ import { WHITE_NAME_LIST } from './index'
 
 export function setupRouterGuard (router: Router):void {
   router.beforeEach(async (to, from, next) => {
+    console.log(router)
     if (WHITE_NAME_LIST.includes(to.path)) {
       next()
       return

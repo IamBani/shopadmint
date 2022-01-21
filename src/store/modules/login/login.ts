@@ -7,6 +7,8 @@ import { setItem } from '@/utils/storage'
 import { TOKEN_KEY } from '@/store/const'
 import { useRouter } from 'vue-router'
 import router from '@/router'
+
+console.log(43435564)
 const login:Module<loginState, rootState> = {
   namespaced: true,
   state: {

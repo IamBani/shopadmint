@@ -14,8 +14,7 @@ requireAll(modules).forEach((key) => {
 })
 
 export const asyncRoutes: Array<AppRouteRecordRaw> = [
-  ...routeModuleList,
-  PAGE_NOT_FOUND_ROUTE
+  ...routeModuleList
 ]
 
 const routes: Array<AppRouteRecordRaw> = [
@@ -28,7 +27,8 @@ const routes: Array<AppRouteRecordRaw> = [
       hideMenu: true,
       hideBreadcrumb: true
     }
-  }
+  },
+  PAGE_NOT_FOUND_ROUTE
 ]
 const WHITE_NAME_LIST: string[] = []
 const getRouteNames = (array: any[]) =>

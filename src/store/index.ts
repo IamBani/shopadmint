@@ -6,7 +6,7 @@ import user from './modules/user/user'
 import setting from './modules/setting/setting'
 import permission from './modules/permission/permission'
 import language from './modules/language/language'
-
+console.log(12234)
 const modules = {
   user,
   login,
