@@ -8,7 +8,9 @@
       <el-col :span="12">
         <el-space class="space">
           <el-icon class="icon"><search /></el-icon>
-          <el-icon class="icon"><full-screen /></el-icon>
+          <el-icon class="icon" @click="toggleFullscreen"
+            ><full-screen
+          /></el-icon>
           <el-icon class="icon"><refresh /></el-icon>
           <Il8n></Il8n>
           <el-dropdown class="dropdown">
@@ -32,11 +34,12 @@
     </el-row>
   </el-header>
   <el-header class="tabs-header">
-      <tabs class="tabs"></tabs>
+    <tabs></tabs>
   </el-header>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import screenfull from 'screenfull'
 import variables from '@/style/index.module.scss'
 import hamburger from '../hamburger/hamburger.vue'
 import Breadcrumbs from '../Breadcrumbs/Breadcrumbs.vue'
@@ -49,9 +52,16 @@ export default defineComponent({
     Il8n,
     tabs
   },
-  setup () {
+  setup() {
     console.log(variables)
-    return {}
+    const toggleFullscreen = () => {
+      if (screenfull.isEnabled) {
+        screenfull.toggle()
+      }
+    }
+    return {
+      toggleFullscreen
+    }
   }
 })
 </script>
@@ -78,10 +88,10 @@ export default defineComponent({
       display: flex;
       height: 100%;
       cursor: pointer;
-      ::v-deep .el-space__item{
-        padding-left:8px;
+      ::v-deep .el-space__item {
+        padding-left: 8px;
       }
-      .icon{
+      .icon {
         font-size: 16px;
       }
       .dropdown {
@@ -97,13 +107,12 @@ export default defineComponent({
     }
   }
 }
-.tabs-header{
-  height:$tabs-height;
-  background-color:#fff;
+.tabs-header {
+  height: $tabs-height;
+  background-color: #fff;
   border-top: 1px solid #f6f6f6;
-  .tabs{
-    height: 100%;
-  }
-  line-height:$tabs-height;
+  display: flex;
+  justify-content: space-between;
+  line-height: $tabs-height;
 }
 </style>

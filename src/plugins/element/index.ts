@@ -4,7 +4,7 @@ import {
   ElContainer, ElAside, ElHeader, ElMain, ElMenu, ElResult,
   ElBreadcrumb, ElRow, ElCol, ElPopover,
   ElInputNumber, ElDropdown, ElDropdownItem, ElTooltip,
-  ElAvatar, ElTag, ElTabs, ElSpace, ElDialog, ElRadio, ElDatePicker, ElSelect, ElUpload, ElTimePicker, ElTable, ElMessage,
+  ElAvatar, ElTag, ElTabs, ElSpace, ElDialog, ElRadio, ElDatePicker, ElSelect, ElOption, ElUpload, ElTimePicker, ElTable, ElMessage,
   ElConfigProvider, ElDescriptions, ElDescriptionsItem, ElEmpty, ElSubMenu, ElMenuItem
 } from 'element-plus'
 import * as ElIconModules from '@element-plus/icons'
@@ -49,6 +49,7 @@ export default {
     Vue.component(ElRadio.name, ElRadio)
     Vue.component(ElDatePicker.name, ElDatePicker)
     Vue.component(ElSelect.name, ElSelect)
+    Vue.component(ElOption.name, ElOption)
     Vue.component(ElUpload.name, ElUpload)
     Vue.component(ElTimePicker.name, ElTimePicker)
     Vue.component(ElTable.name, ElTable)

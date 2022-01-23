@@ -1,9 +1,10 @@
 <template>
-  <div class="flex">
+  <div class="flex mt">
     <div class="flex justify-between align-center block">
       <span>{{title}}</span>
-      <el-switch @change="handleChange" :disabled="disabled"  :model-value="def" inline-prompt active-text="开" inactive-text="关">
+      <slot><el-switch @change="handleChange" :disabled="disabled"  :model-value="def" inline-prompt active-text="开" inactive-text="关">
       </el-switch>
+      </slot>
     </div>
   </div>
 </template>
@@ -38,6 +39,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.mt{
+  margin: 10px 0;
+}
 .block{
   width: 100%;
 }

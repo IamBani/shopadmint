@@ -1,11 +1,4 @@
 <template>
-<!-- <el-space>
-      <draggable v-model="likeList" item-key="id">
-      <template #item="{ element:item,index }">
-        <div class="item">{{ item.id + "、" + item.name }}{{index}}</div>
-      </template>
-    </draggable>
-</el-space> -->
     <el-space>
       <draggable v-model="tabs" item-key="path">
          <template #item="{element:item,index}">
@@ -32,7 +25,7 @@
         </template>
       </draggable>
     </el-space>
-  <el-tooltip
+    <el-tooltip
       ref="tooltipRef"
       v-model:visible="visible"
       placement="bottom"
@@ -71,6 +64,13 @@
       </el-space>
       </template>
     </el-tooltip>
+     <div class="flex align-center box">
+      <el-icon><refresh-right /></el-icon>
+      <el-divider direction="vertical"></el-divider>
+      <el-icon><arrow-down-bold /></el-icon>
+      <el-divider direction="vertical"></el-divider>
+      <svg-icon iconName="fullScreen"></svg-icon>
+    </div>
 </template>
 
 <script lang="ts">
@@ -183,5 +183,8 @@ export default defineComponent({
       }
     }
   }
+}
+.box{
+  cursor: pointer;
 }
 </style>
